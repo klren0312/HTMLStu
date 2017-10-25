@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>documents</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .box-flex {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+        }
+        
+        #box {
+            height: 100%;
+            width: 300px !important;
+            background: #282828;
+            position: relative;
+            margin-left: -300px;
+            float: left;
+        }
+        
+        #box span {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            top: 0;
+            right: -30px;
+            background: #ccc;
+        }
+        
+        #box ul {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #box ul li {
+            list-style-type: none;
+            height: 40px;
+            line-height: 40px;
+            font-family: Arial;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        #box ul li.menu-header {
+            height: 200px;
+            width: 100%;
+            line-height: 200px;
+            color: white;
+            font-size: 50px;
+            font-family: "微软雅黑";
+        }
+        
+        #box ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #box ul li a:hover {
+            background: #404040;
+        }
+        
+        .box1 {
+            height: 100%;
+            width: 100%;
+            background: green;
+            float: left;
+            padding-left: 50px;
+            font-size: 30px;
+            color: white;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <link href="" rel="stylesheet">
+</head>
+
+<body>
+    <div class="box-flex">
+        <div id="box">
+            <span id='btn'></span>
+            <ul>
+                <li class="menu-header">头部</li>
+                <li><a href="#">菜单列表一</a></li>
+                <li><a href="#">菜单列表二</a></li>
+                <li><a href="#">菜单列表三</a></li>
+                <li><a href="#">菜单列表四</a></li>
+                <li><a href="#">菜单列表五</a></li>
+                <li><a href="#">菜单列表六</a></li>
+                <li><a href="#">菜单列表七</a></li>
+                <li><a href="#">菜单列表八</a></li>
+                <li><a href="#">菜单列表九</a></li>
+                <li><a href="#">菜单列表十</a></li>
+            </ul>
+        </div>
+        <div class='box1'>右边内容部分</div>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            var oBox = document.getElementById('box');
+            var oBtn = document.getElementById('btn');
+
+            function addEveent(ele, type, fn) {
+                if (ele.addEventListener) {
+                    ele.addEventListener(type, fn, false)
+                } else if (ele.attachEvent) {
+                    ele.attachEvent("on" + type, fn)
+                } else {
+                    ele['on' + type] = fn;
+                }
+            }
+            addEveent(oBtn, 'click', fnMove);
+
+            function fnMove() {
+                var oLeft = parseInt(oBox.offsetLeft);
+                if (oLeft == -300) {
+                    animate(10);
+                } else {
+                    animate1(-10);
+                }
+            }
+
+            function animate(speed) {
+                var t = setInterval(function() {
+                    var oLeft = parseInt(oBox.offsetLeft);
+                    if ((oLeft = -300 && oLeft < 0)) {
+                        oBox.style["margin-left"] = oBox.offsetLeft + speed + 'px';
+                    } else {
+                        clearInterval(t)
+                    }
+                }, 10)
+            }
+
+            function animate1(speed) {
+                var t = setInterval(function() {
+                    var oLeft = parseInt(oBox.offsetLeft);
+                    if (oLeft <= 0 && oLeft > -300) {
+                        oBox.style["margin-left"] = oBox.offsetLeft + speed + 'px';
+                    } else {
+                        clearInterval(t)
+                    }
+                }, 10)
+            }
+        }
+    </script>
+</body>
+
+</html>

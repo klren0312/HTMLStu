@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .box-flex {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            display: -moz-flex;
+            display: -webkit-flex;
+            display: -ms-flex;
+        }
+        
+        #box {
+            height: 100%;
+            width: 300px !important;
+            background: #282828;
+            position: relative;
+            margin-left: -300px;
+            float: left;
+        }
+        
+        #box span {
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            top: 0;
+            right: -30px;
+            background: #232;
+        }
+        
+        #box ul {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #box ul li {
+            list-style-type: none;
+            height: 40px;
+            line-height: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        #box ul li.menu-header {
+            height: 200px;
+            width: 100%;
+            line-height: 200px;
+            color: #000;
+            font-size: 50px;
+            font-family: "微软雅黑";
+        }
+        
+        #box ul li a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #box ul li a:hover {
+            background: #404040;
+        }
+        
+        .box1 {
+            height: 100%;
+            width: 100%;
+            background: #d4d4d4;
+            float: left;
+            padding-left: 50px;
+            font-size: 30px;
+            color: white;
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-flex">
+        <aside id="box">
+            <span id="btn"><</span>
+            <ul>
+                <li class="menu-header">Header</li>
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+                <li><a href="#">menu5</a></li>
+                <li><a href="#">menu6</a></li>
+            </ul>
+        </aside>
+        <div class="box1">
+            <h1>main content</h1>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var box = document.getElementById('box')
+            var btn = document.getElementById('btn')
+
+            function addEveent(ele, type, fn) {
+                if (ele.addEventListener) {
+                    ele.addEventListener(type, fn, false)
+                } else if (ele.attachEvent) {
+                    ele.attachEvent("on" + type, fn)
+                } else {
+                    ele['on' + type] = fn
+                }
+            }
+            addEveent(btn, 'click', fnMove)
+
+            function fnMove() {
+                var left = parseInt(box.offsetLeft)
+                if (left == -300) {
+                    animate(10)
+                } else {
+                    animate1(-10)
+                }
+            }
+
+            // function animate(speed) {
+            //     var t = setInterval(function() {
+            //         var left = parseInt(box.offsetLeft)
+            //         if ((left = -300 && left < 0)) {
+            //             box.style['margin-left'] = box.offsetLeft + speed + 'px';
+            //         } else {
+            //             clearInterval(t)
+            //         }
+            //     }, 10)
+            // }
+
+            // function animate1(speed) {
+            //     var t = setInterval(function() {
+            //         var left = parseInt(box.offsetLeft)
+            //         if (left <= 0 && left > -300) {
+            //             box.style["margin-left"] = box.offsetLeft + speed + 'px'
+            //         } else {
+            //             clearInterval(t)
+            //         }
+            //     }, 10)
+            // }
+        }
+    </script>
+</body>
+
+</html>
