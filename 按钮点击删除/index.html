@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .fruitimg {
+            width: 250px;
+            height: 250px;
+            padding: 20px;
+        }
+        
+        .delimg {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: none;
+            transition: display 2s;
+            cursor: pointer;
+        }
+        
+        #delbtn,
+        #cancel,
+        #ok {
+            border: 0;
+            width: 100px;
+            height: 40px;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            background: lightseagreen;
+        }
+        
+        #ok,
+        #cancel {
+            display: none;
+        }
+        
+        .fruitbox {
+            position: relative;
+            border: 1px solid #d4d4d4;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <button id="delbtn" onclick="getdel()">删除</button>
+        <button id="cancel" onclick="cancel()">取消</button>
+        <button id="ok" onclick="ok()">确认</button>
+    </header>
+    <section>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="1" src="2.png" alt="">
+            <p>fruit name1</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="2" src="2.png" alt="">
+            <p>fruit name2</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="3" src="2.png" alt="">
+            <p>fruit name3</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="4" src="2.png" alt="">
+            <p>fruit name4</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="5" src="2.png" alt="">
+            <p>fruit name5</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="6" src="2.png" alt="">
+            <p>fruit name6</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="7" src="2.png" alt="">
+            <p>fruit name7</p>
+        </div>
+        <div class="fruitbox">
+            <img class="fruitimg" src="1.png" alt="">
+            <img class="delimg" onclick="del(this)" value="8" src="2.png" alt="">
+            <p>fruit name8</p>
+        </div>
+    </section>
+    <script>
+        var delbtn = document.getElementsByClassName("delimg")
+        var okbtn = document.getElementById("ok")
+        var cancelbtn = document.getElementById("cancel")
+        var getDelBtn = document.getElementById("delbtn")
+        var fruitbox = document.getElementsByClassName("fruitbox")
+
+        function getdel() {
+            okbtn.style["display"] = "inline-block"
+            cancelbtn.style["display"] = "inline-block"
+            getDelBtn.style['display'] = "none"
+            for (var i = 0, len = delbtn.length; i < len; i++) {
+                delbtn[i].style["display"] = "inline-block"
+            }
+        }
+
+        function del(obj) {
+            // console.log(obj.getAttribute('value'))
+            console.log(obj.parentNode)
+            obj.parentNode.style["display"] = "none"
+        }
+
+        function cancel() {
+            getDelBtn.style['display'] = "inline-block"
+            okbtn.style["display"] = "none"
+            cancelbtn.style["display"] = "none"
+            for (var i = 0, len = delbtn.length; i < len; i++) {
+                delbtn[i].style["display"] = "none"
+            }
+            for (var i = 0, len = fruitbox.length; i < len; i++) {
+                fruitbox[i].style["display"] = "inline-block"
+            }
+        }
+
+        function ok() {
+            getDelBtn.style['display'] = "inline-block"
+            okbtn.style["display"] = "none"
+            cancelbtn.style["display"] = "none"
+            for (var i = 0, len = delbtn.length; i < len; i++) {
+                delbtn[i].style["display"] = "none"
+            }
+
+        }
+    </script>
+</body>
+
+</html>
