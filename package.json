@@ -1,0 +1,30 @@
+{
+  "name": "html5test",
+  "version": "1.0.0",
+  "description": "前端一些组件的学习实现",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klren0312/HTMLStu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klren0312/HTMLStu/issues"
+  },
+  "homepage": "https://github.com/klren0312/HTMLStu#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "cssnext": "^1.8.4",
+    "gulp": "^3.9.1",
+    "gulp-postcss": "^7.0.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "precss": "^2.0.0"
+  }
+}

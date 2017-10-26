@@ -1,0 +1,11 @@
+:root {
+    --body_bg_color: color(black ligntness(20%));
+}
+
+body {
+    background: var(--body_bg_color);
+}
+
+.autoprefixer {
+    display: flex;
+}

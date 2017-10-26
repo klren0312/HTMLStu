@@ -1,0 +1,1 @@
+{"version":3,"sources":["stu1.css"],"names":[],"mappings":"AAIA;IACI,wCAAiC;CACpC;;AAED;IACI,qBAAc;IAAd,qBAAc;IAAd,cAAc;CACjB","file":"stu1.css","sourcesContent":[":root {\r\n    --body_bg_color: color(black ligntness(20%));\r\n}\r\n\r\nbody {\r\n    background: var(--body_bg_color);\r\n}\r\n\r\n.autoprefixer {\r\n    display: flex;\r\n}"]}
