@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+            left: 0;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        aside {
+            width: 300px;
+            height: 1000px;
+            margin-right: 0;
+            float: right;
+            background: #d4d4d4;
+            transition: margin-right 2s ease;
+        }
+        
+        .open {
+            margin-right: 0px;
+        }
+        
+        .close {
+            margin-right: -300px;
+        }
+    </style>
+</head>
+
+<body>
+    <aside id="aside">
+        <ul>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+            <li>list</li>
+        </ul>
+    </aside>
+    <position>
+        <button onclick="toggle()">
+            打开/关闭右侧侧边栏
+        </button>
+    </position>
+    <script>
+        var aside = document.getElementById("aside")
+
+        function toggle() {
+            if (aside.offsetLeft == 1049) {
+                aside.setAttribute("class", "close")
+            } else {
+                aside.setAttribute("class", "open")
+                console.log("not in")
+            }
+        }
+    </script>
+</body>
+
+</html>
